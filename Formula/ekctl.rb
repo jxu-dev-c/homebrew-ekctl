@@ -1,8 +1,8 @@
 class Ekctl < Formula
   desc "macOS CLI tool for managing Calendar events and Reminders via EventKit"
   homepage "https://github.com/schappim/ekctl"
-  url "https://github.com/schappim/ekctl/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "ed779b92042b6b11b0e55cfbcfab317f49ecf5af9e56439c6ad1de454735a815"
+  url "https://github.com/schappim/ekctl/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "91242b4f7abb7949af98690f842ad8f02c001f0b26d69ea0a4fb2173eb70e4d9"
   license "MIT"
   head "https://github.com/schappim/ekctl.git", branch: "main"
 
@@ -47,12 +47,17 @@ class Ekctl < Formula
   end
 
   test do
-    assert_match "1.4.0", shell_output("#{bin}/ekctl --version")
+    assert_match "1.6.0", shell_output("#{bin}/ekctl --version")
     assert_match "calendars", shell_output("#{bin}/ekctl list --help")
     assert_match "today", shell_output("#{bin}/ekctl --help")
     assert_match "next", shell_output("#{bin}/ekctl --help")
     assert_match "alias", shell_output("#{bin}/ekctl --help")
     # `--format` is on every output-producing command since 1.4.0
     assert_match "--format", shell_output("#{bin}/ekctl list events --help")
+    # `update` arrived in 1.4.0; before that `ekctl update event` silently fell
+    # through to `list`, so assert the real subcommand and its flags are here.
+    assert_match "update", shell_output("#{bin}/ekctl --help")
+    assert_match "--notes", shell_output("#{bin}/ekctl update event --help")
+    assert_match "--alarms", shell_output("#{bin}/ekctl update event --help")
   end
 end
