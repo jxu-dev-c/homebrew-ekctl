@@ -1,16 +1,20 @@
 # Homebrew Tap for ekctl
 
-This is the official Homebrew tap for [ekctl](https://github.com/schappim/ekctl) - a native macOS CLI tool for managing Calendar events and Reminders via EventKit.
+This is jxu-dev-c’s personal Homebrew tap for [ekctl](https://github.com/jxu-dev-c/ekctl) - a native macOS CLI tool for managing Calendar events and Reminders via EventKit.
 
 ## Installation
 
 ```bash
 # Add the tap
-brew tap schappim/ekctl
+brew tap jxu-dev-c/ekctl
 
 # Install ekctl
-brew install ekctl
+brew install jxu-dev-c/ekctl/ekctl
 ```
+
+The stable formula preserves version 1.4.0 during migration and builds from the personal fork. The `--HEAD` option builds the fork’s `main` branch.
+
+Upstream: [schappim/ekctl](https://github.com/schappim/ekctl).
 
 ## Quick Start
 
@@ -75,7 +79,7 @@ On first run, macOS will prompt you to grant access to Calendars and Reminders. 
 
 ## Documentation
 
-For complete documentation and more examples, see the [ekctl README](https://github.com/schappim/ekctl).
+For complete documentation and more examples, see the [ekctl README](https://github.com/jxu-dev-c/ekctl).
 
 ## License
 

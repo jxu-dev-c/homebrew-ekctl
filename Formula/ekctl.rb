@@ -1,10 +1,11 @@
 class Ekctl < Formula
   desc "macOS CLI tool for managing Calendar events and Reminders via EventKit"
-  homepage "https://github.com/schappim/ekctl"
-  url "https://github.com/schappim/ekctl/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "91242b4f7abb7949af98690f842ad8f02c001f0b26d69ea0a4fb2173eb70e4d9"
+  homepage "https://github.com/jxu-dev-c/ekctl"
+  url "https://github.com/jxu-dev-c/ekctl/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "ed779b92042b6b11b0e55cfbcfab317f49ecf5af9e56439c6ad1de454735a815"
+  revision 1
   license "MIT"
-  head "https://github.com/schappim/ekctl.git", branch: "main"
+  head "https://github.com/jxu-dev-c/ekctl.git", branch: "main"
 
   depends_on xcode: ["14.0", :build]
   depends_on :macos
@@ -42,12 +43,12 @@ class Ekctl < Formula
           --start 2026-01-15T09:00:00Z --end 2026-01-15T10:00:00Z
         ekctl add reminder --list personal --title "Call mom"
 
-      For more examples, see: https://github.com/schappim/ekctl#usage
+      For more examples, see: https://github.com/jxu-dev-c/ekctl#usage
     EOS
   end
 
   test do
-    assert_match "1.6.0", shell_output("#{bin}/ekctl --version")
+    assert_match "1.4.0", shell_output("#{bin}/ekctl --version")
     assert_match "calendars", shell_output("#{bin}/ekctl list --help")
     assert_match "today", shell_output("#{bin}/ekctl --help")
     assert_match "next", shell_output("#{bin}/ekctl --help")
