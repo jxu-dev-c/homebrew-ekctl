@@ -1,9 +1,8 @@
 class Ekctl < Formula
   desc "macOS CLI tool for managing Calendar events and Reminders via EventKit"
   homepage "https://github.com/jxu-dev-c/ekctl"
-  url "https://github.com/jxu-dev-c/ekctl/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "ed779b92042b6b11b0e55cfbcfab317f49ecf5af9e56439c6ad1de454735a815"
-  revision 1
+  url "https://github.com/jxu-dev-c/ekctl/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "fa82c6c4659c358a97ed042ae962088350f848aba15ebda69c3a3a5497d9885d"
   license "MIT"
   head "https://github.com/jxu-dev-c/ekctl.git", branch: "main"
 
@@ -48,7 +47,7 @@ class Ekctl < Formula
   end
 
   test do
-    assert_match "1.4.0", shell_output("#{bin}/ekctl --version")
+    assert_match "1.9.0", shell_output("#{bin}/ekctl --version")
     assert_match "calendars", shell_output("#{bin}/ekctl list --help")
     assert_match "today", shell_output("#{bin}/ekctl --help")
     assert_match "next", shell_output("#{bin}/ekctl --help")
@@ -60,5 +59,7 @@ class Ekctl < Formula
     assert_match "update", shell_output("#{bin}/ekctl --help")
     assert_match "--notes", shell_output("#{bin}/ekctl update event --help")
     assert_match "--alarms", shell_output("#{bin}/ekctl update event --help")
+    # `--urgent` (ring as an alarm at the due time) arrived in 1.9.0
+    assert_match "--urgent", shell_output("#{bin}/ekctl update reminder --help")
   end
 end
