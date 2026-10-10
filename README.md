@@ -12,7 +12,7 @@ brew tap jxu-dev-c/ekctl
 brew install jxu-dev-c/ekctl/ekctl
 ```
 
-The stable formula preserves version 1.4.0 during migration and builds from the personal fork. The `--HEAD` option builds the fork’s `main` branch.
+The stable formula builds version 1.9.0 from the personal fork. The `--HEAD` option builds the fork’s `main` branch.
 
 Upstream: [schappim/ekctl](https://github.com/schappim/ekctl).
 
